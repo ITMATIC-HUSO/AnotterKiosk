@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch: { }
   create: { }
   pull_request: { }
 
@@ -9,7 +10,7 @@ permissions:
 
 jobs:
   raspberrypi:
-    runs-on: [ubuntu-24.04-arm]
+    runs-on: ubuntu-24.04-arm
 
     outputs:
       pkgfile: ${{ steps.pkgname.outputs.pkgfile }}
