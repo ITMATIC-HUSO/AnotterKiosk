@@ -15,3 +15,18 @@ Last heartbeat:
 
 <br><br>
 <img src="/screenshot.php?<?php echo microtime(); ?>">
+
+<form method="post" action="">
+  <input type="text" name="wifi_ssid" />
+  <input type="text" name="wifi_password" />
+  <button type="submit">Updaten</button>
+</form>
+
+<?php 
+  if(isset($_POST['wifi_ssid'])) {
+    exec('update-ini /boot/kioskbrowser.ini wifi ssid "'.$_POST['wifi_ssid'].'"'); 
+    exec('update-ini /boot/kioskbrowser.ini wifi psk "'.$_POST['wifi_password'].'"'); 
+    exec('update-ini /boot/kioskbrowser.ini browser url "https://narrowcasting.itmatic.nl/"'); 
+    echo 'Geupdate. Reboot het apparaat!';
+  }
+?>
