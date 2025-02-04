@@ -44,6 +44,8 @@ sudo mount /dev/loop0p1 "${BUILD_DIR}/boot"
 
 # Copy the (raspberry pi-specific) skeleton files
 sudo rsync -a "${SCRIPT_DIR}/raspberry_pi_skeleton/." "${BUILD_DIR}"
+echo '0' > "${BUILD_DIR}/var/lib/systemd/rfkill/platform-3f300000.mmcnr:wlan"
+echo '0' > "${BUILD_DIR}/var/lib/systemd/rfkill/platform-fe300000.mmcnr:wlan"
 sudo rsync -a "${SCRIPT_DIR}/kiosk_skeleton/." "${BUILD_DIR}/kiosk_skeleton"
 
 # Make fstab read-only
