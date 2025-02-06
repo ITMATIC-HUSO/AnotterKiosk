@@ -1,0 +1,1 @@
+console=serial0,115200 root=PARTUUID=544c6228-02 rootfstype=ext4 rootwait logo.nologo consoleblank=0 loglevel=0 quiet splash vt.global_cursor_default=0
